@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 // rtl
 import { prefixer } from 'stylis';
-import rtlPlugin from 'stylis-plugin-rtl';
 // emotion
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
@@ -24,7 +23,7 @@ export default function ThemeRtlLayout({ children }) {
 
   const cacheRtl = createCache({
     key: theme.direction === 'rtl' ? 'rtl' : 'css',
-    stylisPlugins: theme.direction === 'rtl' ? [prefixer, rtlPlugin] : [],
+    stylisPlugins: theme.direction === 'rtl' ? [prefixer] : [],
   });
 
   return <CacheProvider value={cacheRtl}>{children}</CacheProvider>;
